@@ -1,8 +1,6 @@
 import React from "react";
-import { TaskContext } from "../../Context";
 
-const TaskForm = () => {
-    const { createTask, setOpenModal } = React.useContext(TaskContext);
+const TaskForm = ({ createTask, setOpenModal }) => {
     const [newTask, setNewTask] = React.useState('');
     const handleCancel = () => {
         console.log('Canceling...');

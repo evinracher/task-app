@@ -1,13 +1,9 @@
 import React from "react";
-import { TaskContext } from "../../Context";
-const TaskItem = ({ task }) => {
-    const { completeTask, deleteTask } = React.useContext(TaskContext);
+const TaskItem = ({ task, completeTask, deleteTask }) => {
     const handleComplete = () => {
-        alert("You have completed the task: " + task.text)
         completeTask(task.id);
     }
     const handleDelete = () => {
-        alert('You have deleted the task: ' + task.text);
         deleteTask(task.id);
     }
     return (

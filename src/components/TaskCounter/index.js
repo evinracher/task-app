@@ -1,9 +1,7 @@
 import React from 'react';
-import { TaskContext } from '../../Context';
 import './TaskCounter.css';
 
-const TaskCounter = () => {
-    const { completedTasks, total } = React.useContext(TaskContext);
+const TaskCounter = ({ completedTasks, total }) => {
     return (
         <h2 className="task-counter--title">{`You have completed ${completedTasks} of ${total} tasks`}</h2>
     );

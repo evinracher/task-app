@@ -1,9 +1,7 @@
 import React from 'react';
 import { useLocalStorage } from './useLocalStorage';
 
-const TaskContext = React.createContext();
-
-const TaskProvider = (props) => {
+const useTasks = () => {
     const { item: tasks, saveItem: saveTasks, loading, error } = useLocalStorage('2022_03_TA-tasks', []);
     const [searchValue, setSearchValue] = React.useState('');
     const [filteredTasks, setFilteredTasks] = React.useState(tasks);
@@ -38,7 +36,7 @@ const TaskProvider = (props) => {
     }
 
     return (
-        <TaskContext.Provider value={{
+        {
             error,
             loading,
             filteredTasks,
@@ -51,10 +49,8 @@ const TaskProvider = (props) => {
             createTask,
             openModal,
             setOpenModal
-        }}>
-            {props.children}
-        </TaskContext.Provider>
+        }
     )
 }
 
-export { TaskContext, TaskProvider }
+export { useTasks }

@@ -1,7 +1,5 @@
 import React from 'react';
-import { TaskContext } from '../../Context';
-const TaskSearch = () => {
-    const { searchValue, setSearchValue } = React.useContext(TaskContext);
+const TaskSearch = ({ searchValue, setSearchValue }) => {
     const handleChange = (event) => {
         const value = event.target.value.trim();
         setSearchValue(value)
@@ -10,7 +8,7 @@ const TaskSearch = () => {
     return (
         <>
             <input onChange={handleChange} style={{ margin: 'auto' }} placeholder="Search task"></input>
-            <h3>{`Searching for: ${searchValue}`}</h3>
+            <p><b>{`Searching for: ${searchValue}`}</b></p>
         </>
     )
 }

@@ -12,12 +12,6 @@ code {
     monospace;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-}
-
 .task-list {
   list-style: none;
   width: 80%;

@@ -1,0 +1,1 @@
+export const LOCAL_STORAGE_NAME = "2022_03_TA-tasks"

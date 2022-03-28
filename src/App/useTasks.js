@@ -1,8 +1,9 @@
 import React from 'react';
+import { LOCAL_STORAGE_NAME } from '../utils/constants';
 import { useLocalStorage } from './useLocalStorage';
 
 const useTasks = () => {
-    const { item: tasks, saveItem: saveTasks, loading, error } = useLocalStorage('2022_03_TA-tasks', []);
+    const { item: tasks, saveItem: saveTasks, synchronizeItem: synchronizeTasks, loading, error } = useLocalStorage(LOCAL_STORAGE_NAME, []);
     const [searchValue, setSearchValue] = React.useState('');
     const [filteredTasks, setFilteredTasks] = React.useState(tasks);
     const [openModal, setOpenModal] = React.useState(false);
@@ -48,7 +49,8 @@ const useTasks = () => {
             deleteTask,
             createTask,
             openModal,
-            setOpenModal
+            setOpenModal,
+            synchronizeTasks
         }
     )
 }

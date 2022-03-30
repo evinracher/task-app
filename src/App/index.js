@@ -11,6 +11,7 @@ import { Modal } from '../Modal';
 import { useTasks } from './useTasks';
 import { ChangeAlertWithStorageListener } from '../components/ChangeAlert';
 const App = () => {
+  console.log("Rendering...")
   const {
     error,
     loading,
@@ -24,6 +25,7 @@ const App = () => {
     createTask,
     deleteTask,
     completeTask,
+    synchronizeTasks
   } = useTasks();
   return (
     <React.Fragment>
@@ -46,7 +48,7 @@ const App = () => {
         onError={() => <p>Error: Something has failed.</p>}
         onLoading={() => <p>Loading...</p>}
         onEmpty={() => <p>Please add your first task.</p>}
-        onEmptyResults={(value) => <p>The is not result for: <b>{value}</b></p>}
+        onEmptyResults={(value) => <p>There is not result for: <b>{value}</b></p>}
       // render={(task, index) => <TaskItem
       //   key={index}
       //   task={{ ...task, id: index }}
@@ -67,6 +69,7 @@ const App = () => {
         </Modal>}
       <CreateButton setOpenModal={setOpenModal} />
       <ChangeAlertWithStorageListener
+        synchronize={synchronizeTasks}
       />
     </React.Fragment>
   );

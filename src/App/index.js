@@ -24,7 +24,6 @@ const App = () => {
     createTask,
     deleteTask,
     completeTask,
-    synchronizeTasks
   } = useTasks();
   return (
     <React.Fragment>
@@ -68,7 +67,6 @@ const App = () => {
         </Modal>}
       <CreateButton setOpenModal={setOpenModal} />
       <ChangeAlertWithStorageListener
-        synchronize={synchronizeTasks}
       />
     </React.Fragment>
   );

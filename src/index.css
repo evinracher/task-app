@@ -11,20 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.task-list {
-  list-style: none;
-  width: 80%;
-  margin: auto;
-}
-
-.task-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.task-item__text--completed {
-  text-decoration: line-through;
-  color: red;
-}

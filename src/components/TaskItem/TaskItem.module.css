@@ -1,0 +1,32 @@
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background-color: rgba(200, 200, 200, 0.2);
+  padding: 0 1rem;
+  border-radius: 6px;
+}
+
+.task__text--completed {
+  text-decoration: line-through;
+  color: rgba(100, 100, 100, 0.5);
+}
+
+.task__icon {
+  cursor: pointer;
+}
+
+.task__icon .complete:hover,
+.completed {
+  color: green;
+}
+
+.task__icon .delete:hover {
+  color: red;
+}
+
+.check {
+  color: green;
+  border: 1px solid red;
+}

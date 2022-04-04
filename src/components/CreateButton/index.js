@@ -1,16 +1,19 @@
-import React from "react"
+import React from "react";
+import s from "./CreateButton.module.css";
 
 const CreateButton = ({ setOpenModal }) => {
     const handleClick = () => {
         setOpenModal(true);
-    }
+    };
 
     return (
         <button
-            style={{ margin: 'auto' }}
+            className={s["btn"]}
             onClick={handleClick}
-        >New Task</button>
-    )
-}
+        >
+            <i class="fa-solid fa-plus"></i> New Task
+        </button>
+    );
+};
 
-export { CreateButton }
+export { CreateButton };

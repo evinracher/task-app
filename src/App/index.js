@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { CreateButton } from '../components/CreateButton';
 import { TaskCounter } from '../components/TaskCounter';
 import { TaskForm } from '../components/TaskForm';
@@ -7,11 +6,12 @@ import { TaskItem } from '../components/TaskItem';
 import { TaskList } from '../components/TaskList';
 import { TaskSearch } from '../components/TaskSearch';
 import { TaskHeader } from '../components/TaskHeader';
-import { Modal } from '../Modal';
+import { Modal } from '../components/Modal';
 import { useTasks } from './useTasks';
 import { ChangeAlertWithStorageListener } from '../components/ChangeAlert';
+import s from './App.module.css';
+
 const App = () => {
-  console.log("Rendering...")
   const {
     error,
     loading,
@@ -28,7 +28,7 @@ const App = () => {
     synchronizeTasks
   } = useTasks();
   return (
-    <React.Fragment>
+    <div className={s["container"]}>
       <TaskHeader loading={loading}>
         <TaskCounter
           completedTasks={completedTasks}
@@ -49,12 +49,6 @@ const App = () => {
         onLoading={() => <p>Loading...</p>}
         onEmpty={() => <p>Please add your first task.</p>}
         onEmptyResults={(value) => <p>There is not result for: <b>{value}</b></p>}
-      // render={(task, index) => <TaskItem
-      //   key={index}
-      //   task={{ ...task, id: index }}
-      //   completeTask={completeTask}
-      //   deleteTask={deleteTask}
-      // />}
       >
         {(task, index) => <TaskItem
           key={index}
@@ -63,16 +57,18 @@ const App = () => {
           deleteTask={deleteTask}
         />}
       </TaskList>
+      <div className={s["actions"]}>
+        <CreateButton setOpenModal={setOpenModal} />
+        <ChangeAlertWithStorageListener
+          synchronize={synchronizeTasks}
+        />
+      </div>
       {openModal &&
         <Modal>
           <TaskForm createTask={createTask} setOpenModal={setOpenModal} />
         </Modal>}
-      <CreateButton setOpenModal={setOpenModal} />
-      <ChangeAlertWithStorageListener
-        synchronize={synchronizeTasks}
-      />
-    </React.Fragment>
+    </div>
   );
-}
+};
 
 export default App;

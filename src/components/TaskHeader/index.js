@@ -1,9 +1,13 @@
 import React from "react";
 
-const TaskHeader = ({ children }) => {
+const TaskHeader = ({ children, loading }) => {
+    const elements = React.Children.toArray(children);
+
     return (
         <header>
-            {children}
+            {elements.map(child => React.cloneElement(child, {
+                loading
+            }))}
         </header>
     )
 }

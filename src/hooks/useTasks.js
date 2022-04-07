@@ -1,6 +1,6 @@
 import React from 'react';
 import { LOCAL_STORAGE_NAME } from '../utils/constants';
-import { useLocalStorage } from './useLocalStorage';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const useTasks = () => {
     const { item: tasks, saveItem: saveTasks, synchronizeItem: synchronizeTasks, loading, error } = useLocalStorage(LOCAL_STORAGE_NAME, []);

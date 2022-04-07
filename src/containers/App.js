@@ -7,7 +7,7 @@ import { TaskList } from '../components/TaskList';
 import { TaskSearch } from '../components/TaskSearch';
 import { TaskHeader } from '../components/TaskHeader';
 import { Modal } from '../components/Modal';
-import { useTasks } from './useTasks';
+import { useTasks } from '../hooks/useTasks';
 import { ChangeAlertWithStorageListener } from '../components/ChangeAlert';
 import s from './App.module.css';
 

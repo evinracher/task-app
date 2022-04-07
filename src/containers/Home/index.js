@@ -59,7 +59,6 @@ function Home({ taskData }) {
           synchronize={synchronizeTasks}
         />
       </div>
-
     </div>
   );
 }

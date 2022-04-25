@@ -1,32 +1,28 @@
 import React from 'react';
-import { CreateButton } from '../components/CreateButton';
-import { TaskCounter } from '../components/TaskCounter';
-import { TaskForm } from '../components/TaskForm';
-import { TaskItem } from '../components/TaskItem';
-import { TaskList } from '../components/TaskList';
-import { TaskSearch } from '../components/TaskSearch';
-import { TaskHeader } from '../components/TaskHeader';
-import { Modal } from '../components/Modal';
-import { useTasks } from './useTasks';
-import { ChangeAlertWithStorageListener } from '../components/ChangeAlert';
-import s from './App.module.css';
+import { CreateButton } from '../../components/CreateButton';
+import { TaskCounter } from '../../components/TaskCounter';
+import { TaskItem } from '../../components/TaskItem';
+import { TaskList } from '../../components/TaskList';
+import { TaskSearch } from '../../components/TaskSearch';
+import { TaskHeader } from '../../components/TaskHeader';
+import { ChangeAlertWithStorageListener } from '../../components/ChangeAlert';
+import s from "./Home.module.css";
 
-const App = () => {
+function Home({ taskData }) {
   const {
     error,
     loading,
     filteredTasks,
-    openModal,
-    setOpenModal,
     completedTasks,
     total,
     searchValue,
+    setOpenModal,
     setSearchValue,
-    createTask,
     deleteTask,
     completeTask,
     synchronizeTasks
-  } = useTasks();
+  } = taskData;
+
   return (
     <div className={s["container"]}>
       <TaskHeader loading={loading}>
@@ -63,12 +59,8 @@ const App = () => {
           synchronize={synchronizeTasks}
         />
       </div>
-      {openModal &&
-        <Modal>
-          <TaskForm createTask={createTask} setOpenModal={setOpenModal} />
-        </Modal>}
     </div>
   );
-};
+}
 
-export default App;
+export default Home;
